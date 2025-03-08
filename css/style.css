@@ -1,0 +1,42 @@
+body {
+    background-image: url('https://cdn.pixabay.com/photo/2017/03/27/14/34/justice-2173098_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 100px;
+}
+
+.contact-link {
+    color: gold;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+input, textarea, button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    background: gold;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}

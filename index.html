@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلب استشارة قانونية</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>طلب استشارة قانونية</h2>
+        <p>المحامي: <strong>نجمة عبدالباقي</strong></p>
+        <p>رقم الهاتف: <a href="tel:+213123456789" class="contact-link">+213 123 456 789</a></p>
+        <p>موقع المكتب: <a href="https://www.google.com/maps?q=36.752778,3.042222" target="_blank" class="contact-link">اضغط هنا لفتح الخريطة</a></p>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="الاسم الكامل" required>
+            <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+            <input type="text" id="phone" placeholder="رقم الهاتف" required>
+            <textarea id="message" placeholder="أدخل تفاصيل استشارتك" required></textarea>
+            <button type="submit">إرسال الطلب</button>
+        </form>
+    </div>
+    <script>
+        (function() {
+            emailjs.init("Ub2CUg8STqTqsC42m"); // استبدل هذا بمفتاحك العام الحقيقي من EmailJS
+        })();
+      
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // منع إعادة تحميل الصفحة
+            
+            emailjs.send("service_f534l8e", "template_thbnxzt", {
+                from_name: document.getElementById("name").value,
+                from_email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value, 
+                message: document.getElementById("message").value
+            }, "Ub2CUg8STqTqsC42m") // تأكد من وضع المفتاح العام هنا أيضاً
+            .then(function(response) {
+                alert("تم إرسال الرسالة بنجاح! ✅");
+                console.log("نجاح:", response);
+            }, function(error) {
+                alert("حدث خطأ أثناء الإرسال ❌ تحقق من إعدادات EmailJS.");
+                console.error("خطأ:", error);
+            });
+        });
+    </script>
+</body>
+</html>
